@@ -38,7 +38,11 @@ int slope(double in_data[], double in_len, double *out_Q, double *out_b)
    for(i=0;i<in_len-1;i++)
    {
       for(j=i+1;j<in_len;j++)
-         Q[k++]=(in_data[j]-(i+1))/(j-i);
+	{
+         Q[k++]=(in_data[j]-in_data[i])/(j-i);
+	 printf("%f , ",Q[k-1]);
+	}
+
    }
 
 //   quicksort(Q, 0, N-1); //Sort array Q

@@ -40,6 +40,7 @@ int slope(double in_data[][2], double in_len, double *out_Q, double *out_b)
       for(j=i+1;j<in_len;j++)
       {
          Q[k]=(in_data[j][1]-in_data[i][1])/(j-i);
+	 printf("%f , ",Q[k]);
          k++;
       }
    }
