@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
          dif=-dif;
 
       MAPE=MAPE+(dif/in_data[i][1]);
-      printf("%lf\n",tmp); 
+      //printf("%lf\n",tmp); 
    }
    MAPE=MAPE/len;
    printf("\nMAPE= %lf (per cent)     Acuracidade= %lf (per cent) \n",MAPE*100,(1-MAPE)*100);
