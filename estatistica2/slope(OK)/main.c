@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
    int result=-1;
    int dif=0;
    double MAPE=0;
-
    double in_data[91][2]= {01.0, 696.000000,
 02.0, 479.000000,
 03.0, 464.000000,
