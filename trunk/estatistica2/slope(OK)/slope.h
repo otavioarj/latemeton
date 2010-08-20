@@ -1,9 +1,46 @@
 #include<stdlib.h>
 
+#define less(A,B) (A<B)
+#define exch(A,B) {double t=A; A=B; B=t;}
 
-int compare(const void * a, const void * b)
+
+
+void quicksort(double *Q, int l, int r)
 {
-  return (int )a - (int)b;
+   int i;
+   
+   if(r<=l)
+      return;
+
+   i=partition(Q,l,r);
+   quicksort(Q,l,i-1);
+   quicksort(Q,i+1,r);
+}
+
+int partition(double *Q, int l, int r)
+{
+   int i;
+   int j;
+   double v;
+
+   i=l-1;
+   j=r;
+   v=Q[r];
+
+   for(;;)
+   {
+      while(less(Q[++i],v));
+
+      while(less(v,Q[--j]))
+         if(j==l)
+            break;
+
+      if(i>=j)
+         break;
+      exch(Q[i],Q[j]);
+   }
+   exch(Q[i],Q[r]);
+   return i;
 }
 
 int slope(double in_data[], double in_len, double *out_Q, double *out_b)
@@ -45,8 +82,7 @@ int slope(double in_data[], double in_len, double *out_Q, double *out_b)
 
    }
 
-//   quicksort(Q, 0, N-1); //Sort array Q
-   qsort(Q,N,sizeof(double),compare);
+  quicksort(Q, 0, N-1); //Sort array Q
 
    
    if(N%2==0) //Checks if the number of elements in Q is even
