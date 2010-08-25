@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "/opt/rrdtool-1.4.4/include/rrd.h"
+#include <include/rrd.h>
 #define MAX 24
 
 
