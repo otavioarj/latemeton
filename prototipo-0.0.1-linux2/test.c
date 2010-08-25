@@ -75,18 +75,18 @@ printf("%s %d\n",last,rrd_ret);
   char **ds_namv,*rrd_argv_2[3];
   int rrd_argc_2, start_2=1275161788; 
   int i=1,cnt=0,temp=0;
-  char *data_f, data_temp[12]; //*temps;
-	double **data_series;
+  char *data_f, data_temp[12],*temps;
+  double **data_series;
   rrd_argv[0]="fetch";
   rrd_argv[5]="db1.rrd";
   rrd_argv[6]="LAST";
   rrd_argv[1]="--start";
-//	temps=malloc(10);  
-//	sprintf(temps,"%d",first("db1.rrd"));
-//	printf("%s\n",temps);
-//	rrd_argv[2]=(char *)temps;
-  rrd_argv[2]="920804400";
-//	free(temps);
+  temps=malloc(10);  
+  sprintf(temps,"%d",300*24*first("db1.rrd"));
+  printf("%s\n",temps);
+  rrd_argv[2]=(char *)temps;
+ // rrd_argv[2]="920804400";
+  free(temps);
   rrd_argv[3]="--end";
   rrd_argv[4]=last; // last data inserted.
  
@@ -105,7 +105,7 @@ printf("%s %d\n",last,rrd_ret);
       sprintf(data_f,"%lu",start_2+(i*step)); // get the new time for the second RRD 
 		  for(;cnt<ds_cnt+temp;cnt++)	 // each iteration if for one DST
 		  {	
-        sprintf(data_temp,":%.6f", (double)datavalue[cnt]);
+      			  sprintf(data_temp,":%.6f", (double)datavalue[cnt]);
 			  data_f=strcat(data_f,data_temp);
 		  }
 			data_series[i]=malloc(6*sizeof(double));
