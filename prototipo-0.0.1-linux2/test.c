@@ -82,7 +82,7 @@ printf("%s %d\n",last,rrd_ret);
   rrd_argv[6]="LAST";
   rrd_argv[1]="--start";
   temps=malloc(10);  
-  sprintf(temps,"%d",300*24*first("db1.rrd"));
+  sprintf(temps,"%d",300*14 + first("db1.rrd")); // Don't ask me why, rrd get the first date wrong... 14*300 second before the first insertion oO
   printf("%s\n",temps);
   rrd_argv[2]=(char *)temps;
  // rrd_argv[2]="920804400";
