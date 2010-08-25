@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <rrd.h>
+#include "/opt/rrdtool-1.4.4/include/rrd.h"
 #define MAX 24
+
+
 
 int create(char * name, char* start,short int qnt_ds, char* step )
 {
